@@ -24,6 +24,11 @@ class TileNeuron:
     def _sigmoid(self, z: np.ndarray) -> np.ndarray:
         """Sigmoid activation function with numerical stability."""
         return 1.0 / (1.0 + np.exp(-np.clip(z, -500, 500)))
+    
+
+    def relu(self, z: np.ndarray) -> np.ndarray:
+        """ReLU activation function."""
+        return np.maximum(0, z)
 
     def _flatten_patch(self, patch: np.ndarray) -> np.ndarray:
         """Flatten 4x4x3 patch to 48-dim vector, normalize to [0,1]."""
